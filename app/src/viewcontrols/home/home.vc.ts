@@ -5,7 +5,7 @@ export default class HomeViewControl extends BaseViewControl {
     templateString: string = require('./home.vc.html');
 
     context: contexts.IHomeContext = {
-		title: "The Calculator",
+		title: "A Platypi Calculator",
 		input1: null,
 		input2: null,
 		para: ''

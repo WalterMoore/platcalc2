@@ -11,7 +11,7 @@ var HomeViewControl = (function (_super) {
         _super.apply(this, arguments);
         this.templateString = require('./home.vc.html');
         this.context = {
-            title: "The Calculator",
+            title: "A Platypi Calculator",
             input1: null,
             input2: null,
             para: ''
