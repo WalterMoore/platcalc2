@@ -10,5 +10,4 @@ var BaseService = (function () {
     };
     return BaseService;
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = BaseService;
+exports["default"] = BaseService;

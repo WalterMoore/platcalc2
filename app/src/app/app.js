@@ -10,7 +10,7 @@ var MyApp = (function (_super) {
     function MyApp(router) {
         _super.call(this);
         router.configure([
-            { pattern: '', view: home_vc_1.default }
+            { pattern: '', view: home_vc_1["default"] }
         ]);
     }
     MyApp.prototype.error = function (ev) {
@@ -18,8 +18,7 @@ var MyApp = (function (_super) {
     };
     return MyApp;
 })(platypus_1.App);
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = MyApp;
+exports["default"] = MyApp;
 platypus_1.register.app('app', MyApp, [
     platypus_1.routing.Router
 ]);

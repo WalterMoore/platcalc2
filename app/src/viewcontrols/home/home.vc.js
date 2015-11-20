@@ -17,36 +17,38 @@ var HomeViewControl = (function (_super) {
             input2: null
         };
         this.operation = function (operator) {
-            if (this.context.input1 == null || this.context.input2 == null) {
-                alert("Both operands are required!");
-                return;
-            }
-            else if (operator == "+") {
-                this.context.result = this.context.input1 + this.context.input2;
-                this.context.para = "The result of adding " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
-            }
-            else if (operator == "-") {
-                this.context.result = this.context.input1 - this.context.input2;
-                this.context.para = "The result of subtracting " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
-            }
-            else if (operator == "*") {
-                this.context.result = this.context.input1 * this.context.input2;
-                this.context.para = "The result of multiplying " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
-            }
-            else if (operator == "/" && this.context.input2 == 0) {
-                alert("Are you trying to kill us all? Please don't divide by zero");
-                return;
-            }
-            else {
-                this.context.result = this.context.input1 / this.context.input2;
-                this.context.para = "The result of dividing " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
-            }
-            this.context.input1 = 0;
-            this.context.input2 = 0;
+            //if(this.context.input1 === null || this.context.input2 === null){
+            //	alert("Both operands are required!");
+            //return;
         };
     }
+    HomeViewControl.prototype.if = function (operator) {
+        if (operator === void 0) { operator =  == "+"; }
+        this.context.result = this.context.input1 + this.context.input2;
+        this.context.para = "The result of adding " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+    };
+    HomeViewControl.prototype.if = function (operator) {
+        if (operator === void 0) { operator =  == "-"; }
+        this.context.result = this.context.input1 - this.context.input2;
+        this.context.para = "The result of subtracting " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+    };
+    HomeViewControl.prototype.if = function (operator) {
+        if (operator === void 0) { operator =  == "*"; }
+        this.context.result = this.context.input1 * this.context.input2;
+        this.context.para = "The result of multiplying " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+    };
+    HomeViewControl.prototype.if = function (operator) {
+        if (operator === void 0) { operator =  == "/" && this.context.input2 == 0; }
+        alert("Are you trying to kill us all? Please don't divide by zero");
+        return;
+    };
     return HomeViewControl;
-})(base_vc_1.default);
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = HomeViewControl;
+})(base_vc_1["default"]);
+exports["default"] = HomeViewControl;
+{
+    this.context.result = this.context.input1 / this.context.input2;
+    this.context.para = "The result of dividing " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+}
+this.context.input1 = 0;
+this.context.input2 = 0;
 platypus_1.register.viewControl('home-vc', HomeViewControl);

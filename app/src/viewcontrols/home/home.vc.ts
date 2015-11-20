@@ -13,12 +13,10 @@ export default class HomeViewControl extends BaseViewControl {
 	};
 	
 	operation = function(operator){
-		//this.context.input1 = Number(this.context.input1);
-		//this.context.input2 = Number(this.context.input2);
-		if (this.context.input1 == null || this.context.input2 == null){
+
+		if(this.context.input1 === null || this.context.input2 === null){
 			alert("Both operands are required!");
 			return;
-
 		}else if(operator == "+"){
 			this.context.result = this.context.input1 + this.context.input2;
 			this.context.para = "The result of adding " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
