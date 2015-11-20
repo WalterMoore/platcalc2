@@ -10,50 +10,43 @@ var HomeViewControl = (function (_super) {
     function HomeViewControl() {
         _super.apply(this, arguments);
         this.templateString = require('./home.vc.html');
-        this.context = {};
+        this.context = {
+            title: "The Calculator",
+            result: null,
+            input1: null,
+            input2: null
+        };
+        this.operation = function (operator) {
+            if (this.context.input1 == null || this.context.input2 == null) {
+                alert("Both operands are required!");
+                return;
+            }
+            else if (operator == "+") {
+                this.context.result = this.context.input1 + this.context.input2;
+                this.context.para = "The result of adding " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+            }
+            else if (operator == "-") {
+                this.context.result = this.context.input1 - this.context.input2;
+                this.context.para = "The result of subtracting " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+            }
+            else if (operator == "*") {
+                this.context.result = this.context.input1 * this.context.input2;
+                this.context.para = "The result of multiplying " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+            }
+            else if (operator == "/" && this.context.input2 == 0) {
+                alert("Are you trying to kill us all? Please don't divide by zero");
+                return;
+            }
+            else {
+                this.context.result = this.context.input1 / this.context.input2;
+                this.context.para = "The result of dividing " + this.context.input1 + " and " + this.context.input2 + " is " + this.context.result;
+            }
+            this.context.input1 = 0;
+            this.context.input2 = 0;
+        };
     }
     return HomeViewControl;
 })(base_vc_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = HomeViewControl;
 platypus_1.register.viewControl('home-vc', HomeViewControl);
-(function () {
-    var app = angular.module('myApp', []);
-    app.controller('CalcController', ['$scope', '$window', function ($scope, $window) {
-            $scope.title = "The Calculator";
-            $scope.result = null;
-            $scope.input1 = null;
-            $scope.input2 = null;
-            $scope.operation = function (operator) {
-                if ($scope.input1 == null || $scope.input2 == null) {
-                    alert("Both operands are required");
-                    return;
-                }
-                else if (operator == "+") {
-                    $scope.result = $scope.input1 + $scope.input2;
-                    $scope.para = "The result of adding " + $scope.input1 + " and " + $scope.input2 + " is " + $scope.result;
-                }
-                else if (operator == "-") {
-                    $scope.result = $scope.input1 - $scope.input2;
-                    $scope.para = "The result of subtracting " + $scope.input1 + " and " + $scope.input2 + " is " + $scope.result;
-                }
-                else if (operator == "*") {
-                    $scope.result = $scope.input1 * $scope.input2;
-                    $scope.para = "The result of multiplying " + $scope.input1 + " and " + $scope.input2 + " is " + $scope.result;
-                }
-                else if (operator == "/") {
-                    if ($scope.input2 == 0) {
-                        alert("Are you trying to kill us all? Please don't divide by zero");
-                        return;
-                    }
-                    else {
-                        $scope.result = $scope.input1 / $scope.input2;
-                        $scope.para = "The result of dividing " + $scope.input1 + " and " + $scope.input2 + " is " + $scope.result;
-                    }
-                    ;
-                }
-                $scope.input1 = 0;
-                $scope.input2 = 0;
-            };
-        }]);
-})();
