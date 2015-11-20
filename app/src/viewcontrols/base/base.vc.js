@@ -12,4 +12,5 @@ var BaseViewControl = (function (_super) {
     }
     return BaseViewControl;
 })(platypus_1.ui.ViewControl);
-exports["default"] = BaseViewControl;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = BaseViewControl;

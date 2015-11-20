@@ -7,4 +7,5 @@ var BaseRepository = (function () {
     };
     return BaseRepository;
 })();
-exports["default"] = BaseRepository;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = BaseRepository;
