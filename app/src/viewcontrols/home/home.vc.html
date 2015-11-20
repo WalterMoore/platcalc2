@@ -1,1 +1,25 @@
 <h1>Hello World!</h1>
+		<div class="cajagrande">
+			<div class="header">
+				<h1>{{title}}</h1>
+			</div>
+			<div class="instructions"><h3>Enter a number in each box</h3></div>
+			<div class="box1">
+				<input type="number" ng-model="input1" placeholder="Operand1" class="input-box">
+			</div>
+			<br>
+			<div class="box2">
+				<input type="number" ng-model="input2" placeholder="Operand2" class="input-box">
+			</div>
+			<br>
+			<div class="keypad">
+				<button class="add" ng-click="operation('+')">+</button>
+				<button class="subtract" ng-click="operation('-')">-</button>
+				<button class="multiply" ng-click="operation('*')">*</button>
+				<button class="divide" ng-click="operation('/')">/</button>
+			</div>
+			<div class="feedback">
+				<p>{{para}}</p>
+			</div>
+			<a href="javascript:location.reload(true)"><button class="refresh">Refresh</button></a>
+		</div>
